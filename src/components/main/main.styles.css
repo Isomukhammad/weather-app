@@ -1,0 +1,70 @@
+.main-container{
+    top: 0;
+    left: 0;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 2em 3em 4em 3em;
+    position: absolute;
+}
+
+.main-container > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.region-name,
+.temperature, 
+.weather {
+    margin: 0 1em;
+}
+
+.region-name h1{
+    margin: 0;
+    margin-bottom: .2em;
+    font-size: 2em;
+}
+
+.temperature {
+    font-size: 7em;
+    margin: 0;
+}
+
+.weather{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+@media screen and (max-width: 1024px) {
+    .main-container > div {
+        align-items: flex-start;
+    }
+
+    .information{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items:flex-start;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .main-container{
+        height: 50vh;
+        position: relative;
+    }
+    
+    .region-name,
+    .temperature, 
+    .weather {
+        margin: 0;
+    }
+
+    .weather{
+        justify-content: flex-start;
+    }
+}
