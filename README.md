@@ -1,4 +1,4 @@
-This project was created using React. Live demo.
+This project was created using React. [Live demo](https://isomukhammad.github.io/weather-app/).
 
 Desktop version
 ![Desktop design 1](./design/desktop_preview1.png)
