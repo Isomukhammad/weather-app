@@ -25,7 +25,7 @@ const App = () => {
     timezone: '',
   })
 
-  const url = `http://api.weatherapi.com/v1/current.json?key=e714431a7a124eb5b5194732222008&q=${location}`
+  const url = `https://api.weatherapi.com/v1/current.json?key=e714431a7a124eb5b5194732222008&q=${location}`
 
   useEffect(() => {
     try{
