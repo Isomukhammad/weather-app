@@ -25,7 +25,7 @@ const App = () => {
     timezone: '',
   })
 
-  const url = `https://api.weatherapi.com/v1/current.json?key=e714431a7a124eb5b5194732222008&q=${location}`
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=165cf08ace071b07067444e3552f8b7a`
 
   useEffect(() => {
     try{
@@ -45,21 +45,20 @@ const App = () => {
   }, [location])
 
   const weatherConditions = (condition) => {
-    const wallpaper = weatherCondition(condition.location.tz_id, condition.current.condition.text, condition.location.localtime_epoch)
+    console.log(condition)
+    const wallpaper = weatherCondition(condition.weather[0].description, condition.dt, condition.sys.sunrise, condition.sys.sunset)
     setImage(wallpaper);
-
     setWeather( prevValues => {
       return { 
         ...prevValues,
-        name: condition.location.name,
-        temp: condition.current.temp_c,
-        humidity: condition.current.humidity,
-        speed: condition.current.wind_kph,
-        description: condition.current.condition.text,
-        clouds: condition.current.cloud,
-        icon: condition.current.condition.icon,
-        time: condition.location.localtime_epoch,
-        timezone: condition.location.tz_id,
+        name: condition.name,
+        temp: condition.main.temp,
+        humidity: condition.main.humidity,
+        speed: condition.wind.speed,
+        description: condition.weather[0].description,
+        clouds: condition.clouds.all,
+        icon: condition.weather[0].icon,
+        time: condition.dt,
       }
     })
   }

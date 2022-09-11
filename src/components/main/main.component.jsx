@@ -11,7 +11,7 @@ const Main = ({weather}) => {
 
     useEffect(() => {
         if(weather.clouds !== null){ 
-            const hour = new Date(time * 1000).toLocaleTimeString(navigator.language, {timeZone: `${timezone}`, hour: '2-digit', minute: '2-digit'});
+            const hour = new Date(time * 1000).toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit'});
             const date = new Date(time * 1000).toLocaleDateString(
                 'en-US',
                 {weekday: 'long',
@@ -49,7 +49,7 @@ const Main = ({weather}) => {
                 </div>
 
                 <div className ="weather">
-                    <img src={icon} alt="condition icon" />
+                    <img src={`http://openweathermap.org/img/w/${icon}.png`} alt="condition icon" />
                     <span className = 'condition'>{description.toUpperCase()}</span>
                 </div>
             </div>

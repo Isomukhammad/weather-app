@@ -10,39 +10,37 @@ import foggyDay from './assets/foggy_day.jpg'
 import foggyNight from './assets/foggy_night.jpg'
 import defaultImg from './assets/default.jpg'
 
-export const weatherCondition = (timezone, text, time) => {
-    const hour = new Date(time * 1000).toLocaleTimeString(navigator.language, {timeZone: `${timezone}`, hour: '2-digit'});
-
+export const weatherCondition = (text, time, sunrise, sunset) => {
     text = text.toLowerCase();
 
-    if(text.includes('sunny') || text.includes('clear')) {
-        if(hour > 6 && hour < 18){
+    if(text.includes('clear')) {
+        if(time > sunrise && time < sunset){
             return clearDay
         } else {
             return clearNight
         }
     } 
 
-    else if(text.includes('cloudy' || text.includes('overcast'))) {
-        if(hour > 6 && hour < 18){
+    else if(text.includes('clouds' || text.includes('overcast'))) {
+        if(time > sunrise && time < sunset){
             return cloudyDay
         } return cloudyNight
     } 
 
     else if(text.includes('rain')) {
-        if(hour > 6 && hour < 18){
+        if(time > sunrise && time < sunset){
             return rainyDay
         } return rainyNight
     } 
 
     else if(text.includes('snow') || text.includes('blizzard')) {
-        if(hour > 6 && hour < 18){
+        if(time > sunrise && time < sunset){
             return snowyDay
         } return snowyNight
     } 
 
     else if(text.includes('fog')) {
-        if(hour > 6 && hour < 18){
+        if(time > sunrise && time < sunset){
             return foggyDay
         } return foggyNight
     } else {
